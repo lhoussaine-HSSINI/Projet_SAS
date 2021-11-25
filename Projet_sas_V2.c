@@ -181,7 +181,6 @@ void POAD(double T_1[], int N, int POO)
                     T_1[i] = T_1[j];
                     T_1[j] = k;
                     //nom
-
                     strcpy(test_cin[0], t_n[i]);
                     strcpy(t_n[i], t_n[j]);
                     strcpy(t_n[j], test_cin[0]);
@@ -371,12 +370,20 @@ void Fedilis()
         printf("\n");
         printf("========== Apres Fidelisation =========== \n");
         printf("\n");
-        for (i = 0; i < n; i++)
+        for (i = 0,j=0; i < n; i++)
         {
-            if (i < 3)
+            if (j < 3){
+            if (t_tre_montant[i] == t_tre_montant[i+1])
             {
                 t_tre_montant[i] = t_tre_montant[i] * 1.013;
                 printf("%lf \t", t_tre_montant[i]);
+            }
+            else
+                {
+                    t_tre_montant[i] = t_tre_montant[i] * 1.013;
+                    printf("%lf \t", t_tre_montant[i]);
+                    j++;
+                }
             }
         }
     }
